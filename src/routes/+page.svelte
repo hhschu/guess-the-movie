@@ -29,17 +29,17 @@
 <section>
 	<h1 class="text-3xl font-bold">Guess the Movie</h1>
 	<p>
-		These AI images is generated based the plot of an <a href="https://www.imdb.com/chart/top/"
+		These AI images are generated based the plot of an <a href="https://www.imdb.com/chart/top/"
 			>IMDb Top 250 Movie</a
 		>. Which one is it?
 	</p>
 
 	{#await promise}
-		<div class="container">
+		<div class="container mx-auto px-4">
 			<Spinner />
 		</div>
 	{:then movie}
-		<div class="container">
+		<div class="container mx-auto px-4">
 			{#each movie.images as image}<img src={image} alt="" />{/each}
 		</div>
 		<p
