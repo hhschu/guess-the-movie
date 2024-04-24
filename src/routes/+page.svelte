@@ -47,8 +47,7 @@
 					<img
 						class="object-scale-down max-h-[512px]"
 						src={image.url}
-						alt={image.caption}
-						title={image.caption}
+						alt="AI generated movie poster"
 					/>
 				</div>
 			{/each}
