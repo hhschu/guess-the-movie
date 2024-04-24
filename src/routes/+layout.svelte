@@ -2,7 +2,7 @@
 	import './styles.css';
 </script>
 
-<div class="flex flex-col min-h-screen">
+<div class="flex flex-col min-h-svh md:min-h-screen">
 	<main class="flex flex-col w-full max-w-4xl h-max pt-3 mt-0 m-auto">
 		<slot />
 	</main>
