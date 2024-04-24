@@ -2,8 +2,8 @@
 	import './styles.css';
 </script>
 
-<div class="app">
-	<main class="flex flex-col w-full max-w-4xl h-max p-1 mt-0 m-auto">
+<div class="flex flex-col min-h-screen">
+	<main class="flex flex-col w-full max-w-4xl h-max pt-3 mt-0 m-auto">
 		<slot />
 	</main>
 
@@ -14,12 +14,6 @@
 </div>
 
 <style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 90vh;
-	}
-
 	@media (min-width: 480px) {
 		footer {
 			padding: 12px 0;

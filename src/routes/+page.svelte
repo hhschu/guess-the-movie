@@ -28,7 +28,7 @@
 
 <section class="flex flex-col justify-center items-center">
 	<h1 class="text-4xl font-bold pt-3">Guess the Movie</h1>
-	<p class="text-center w-4/5 m-auto py-3">
+	<p class="text-center w-4/5 m-auto py-2">
 		These AI images are generated from the plot of an <a href="https://www.imdb.com/chart/top/"
 			>IMDb Top 250 Movie</a
 		>. Which one is it?
@@ -53,7 +53,7 @@
 				</div>
 			{/each}
 		</div>
-		<p class="font-['Snell_Roundhand'] text-xl text-center m-auto py-3">
+		<p class="font-['Snell_Roundhand'] text-lg text-center m-auto py-3">
 			{movie.genres.join(' · ')}
 		</p>
 	{/await}

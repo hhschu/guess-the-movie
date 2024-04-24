@@ -63,7 +63,7 @@
 	}
 </script>
 
-<div class="container flex flex-col w-full gap-y-4 h-28">
+<div class="container flex flex-col w-full gap-y-4 h-24">
 	{#if !end}
 		<form class="w-full self-center text-center" on:submit|preventDefault={handleSubmit}>
 			<input
