@@ -26,7 +26,6 @@
 	<meta name="description" content="Guess a movie from AI generated posters." />
 </svelte:head>
 
-		These AI images are generated based the plot of an <a href="https://www.imdb.com/chart/top/"
 <section class="flex flex-col justify-center items-center">
 	<h1 class="text-4xl font-bold pt-3">Guess the Movie</h1>
 	<p class="text-center w-4/5 m-auto py-3">
