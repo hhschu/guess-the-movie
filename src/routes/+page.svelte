@@ -40,7 +40,9 @@
 		</div>
 	{:then movie}
 		<div class="container mx-auto px-4">
-			{#each movie.images as image}<img src={image} alt="" />{/each}
+			{#each movie.images as image}
+				<img src={image.url} alt={image.caption} title={image.caption} />
+			{/each}
 		</div>
 		<p
 			style="font-family: 'Snell Roundhand'; font-size: 1.2rem; text-align: center; margin-top: 10px;"

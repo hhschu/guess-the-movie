@@ -1,5 +1,5 @@
 import { json } from '@sveltejs/kit';
-import { FAL_KEY, TMDB_KEY } from '$env/static/private';
+import { FAL_KEY, TMDB_KEY, HUGGINGFACE_KEY } from '$env/static/private';
 import movies from '$lib/server/movies.json';
 import * as fal from '@fal-ai/serverless-client';
 
@@ -33,6 +33,20 @@ Array.prototype.random = function () {
 	return this[Math.floor(Math.random() * this.length)];
 };
 
+async function generateCaption(image) {
+	const data = new Buffer.from(image.split(',')[1], 'base64');
+	const response = await fetch(
+		'https://api-inference.huggingface.co/models/Salesforce/blip-image-captioning-base',
+		{
+			headers: { Authorization: `Bearer ${HUGGINGFACE_KEY}` },
+			method: 'POST',
+			body: data
+		}
+	);
+	const result = await response.json();
+	return result[0].generated_text;
+}
+
 function randomSeed() {
 	return Math.floor(Math.random() * 10000000).toFixed(0);
 }
@@ -55,7 +69,7 @@ async function generateImages(prompt) {
 	let images = [];
 
 	for (const image of result.images) {
-		images.push(image.url);
+		images.push({ url: image.url, caption: await generateCaption(image.url) });
 	}
 
 	return images;
