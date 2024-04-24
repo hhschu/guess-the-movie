@@ -3,12 +3,13 @@
 </script>
 
 <div class="app">
-	<main>
+	<main class="flex flex-col w-full max-w-4xl h-max p-1 mt-0 m-auto">
 		<slot />
 	</main>
 
-	<footer>
-		<p style="font-size: 0.8rem;">Made from Spain with ❤️</p>
+	<footer class="flex flex-col justify-center items-center">
+		<p class="text-xs">Powered by SDXL Lightning</p>
+		<p class="text-xs">Made from Spain with ❤️</p>
 	</footer>
 </div>
 
@@ -17,25 +18,6 @@
 		display: flex;
 		flex-direction: column;
 		min-height: 90vh;
-	}
-
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
 	}
 
 	@media (min-width: 480px) {

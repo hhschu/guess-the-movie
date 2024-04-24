@@ -10,7 +10,6 @@
 	},
 	"devDependencies": {
 		"@fal-ai/serverless-client": "^0.9.3",
-		"simple-svelte-autocomplete": "^2.5.2",
 		"@neoconfetti/svelte": "^1.0.0",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",

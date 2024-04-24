@@ -26,27 +26,35 @@
 	<meta name="description" content="Guess a movie from AI generated posters." />
 </svelte:head>
 
-<section>
-	<h1 class="text-3xl font-bold">Guess the Movie</h1>
-	<p>
 		These AI images are generated based the plot of an <a href="https://www.imdb.com/chart/top/"
+<section class="flex flex-col justify-center items-center">
+	<h1 class="text-4xl font-bold pt-3">Guess the Movie</h1>
+	<p class="text-center w-4/5 m-auto py-3">
+		These AI images are generated from the plot of an <a href="https://www.imdb.com/chart/top/"
 			>IMDb Top 250 Movie</a
 		>. Which one is it?
 	</p>
 
 	{#await promise}
-		<div class="container mx-auto px-4">
+		<div
+			class="container flex w-full aspect-[4/3] max-h-[512px] justify-center items-center mx-auto px-4"
+		>
 			<Spinner />
 		</div>
 	{:then movie}
-		<div class="container mx-auto px-4">
+		<div class="container flex w-full md:w-fit mx-auto px-4">
 			{#each movie.images as image}
-				<img src={image.url} alt={image.caption} title={image.caption} />
+				<div>
+					<img
+						class="object-scale-down max-h-[512px]"
+						src={image.url}
+						alt={image.caption}
+						title={image.caption}
+					/>
+				</div>
 			{/each}
 		</div>
-		<p
-			style="font-family: 'Snell Roundhand'; font-size: 1.2rem; text-align: center; margin-top: 10px;"
-		>
+		<p class="font-['Snell_Roundhand'] text-xl text-center m-auto py-3">
 			{movie.genres.join(' · ')}
 		</p>
 	{/await}
@@ -56,26 +64,5 @@
 <style lang="postcss">
 	:global(html) {
 		background-color: theme(colors.gray.100);
-	}
-
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	img {
-		width: auto;
-		height: 512px;
-	}
-
-	.container {
-		height: 512px;
-		width: 768px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 	}
 </style>
