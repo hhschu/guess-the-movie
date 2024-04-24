@@ -52,7 +52,7 @@
 				</div>
 			{/each}
 		</div>
-		<p class="font-['Snell_Roundhand'] text-lg text-center m-auto py-3">
+		<p class="font-['Snell_Roundhand'] text-lg font-semibold text-center m-auto py-3">
 			{movie.genres.join(' · ')}
 		</p>
 	{/await}
