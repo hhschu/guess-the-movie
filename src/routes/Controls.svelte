@@ -65,9 +65,12 @@
 
 <div class="container flex flex-col w-full gap-y-4 h-24">
 	{#if !end}
-		<form class="w-full self-center text-center" on:submit|preventDefault={handleSubmit}>
+		<form
+			class="w-full self-center text-center space-x-2 space-y-4"
+			on:submit|preventDefault={handleSubmit}
+		>
 			<input
-				class="w-fit md:w-6/12 rounded-md p-2 mx-1"
+				class="w-11/12 md:w-6/12 rounded-md p-2"
 				list="titles"
 				type="text"
 				bind:value={guess}
@@ -78,11 +81,11 @@
 				{/each}
 			</datalist>
 			<button
-				class="h-10 font-semibold rounded-md bg-rose-700 hover:bg-rose-600 py-2 px-4 border-b-4 border-rose-900 text-white"
+				class="h-10 w-24 font-semibold rounded-md bg-rose-700 hover:bg-rose-600 py-2 px-4 border-b-4 border-rose-900 text-white"
 				disabled={!isReady}>Guess</button
 			>
 			<button
-				class="h-10 font-semibold rounded-md bg-slate-200 hover:bg-slate-300 py-2 px-4 border-b-4 border-slate-400 text-slate-900"
+				class="h-10 w-24 font-semibold rounded-md bg-slate-200 hover:bg-slate-300 py-2 px-4 border-b-4 border-slate-400 text-slate-900"
 				on:click={handleGiveUp}
 				disabled={!isReady}>Give up</button
 			>
@@ -97,7 +100,7 @@
 
 	{#if end}
 		<button
-			class="self-center h-10 px-6 font-semibold rounded-md bg-black text-white"
+			class="self-center h-10 w-24 px-6 font-semibold rounded-md bg-black text-white"
 			on:click={refresh}>New Game</button
 		>
 	{/if}
