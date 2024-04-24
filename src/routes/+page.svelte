@@ -23,7 +23,7 @@
 
 <svelte:head>
 	<title>Guess The Movie</title>
-	<meta name="description" content="Guess which is the movie from AI generated posters." />
+	<meta name="description" content="Guess a movie from AI generated posters." />
 </svelte:head>
 
 <section>
