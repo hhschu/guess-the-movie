@@ -100,7 +100,7 @@
 
 	{#if end}
 		<button
-			class="self-center h-10 w-24 px-6 font-semibold rounded-md bg-black text-white"
+			class="self-center h-10 px-6 font-semibold rounded-md bg-black text-white"
 			on:click={refresh}>New Game</button
 		>
 	{/if}
