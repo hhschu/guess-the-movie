@@ -63,10 +63,16 @@
 	}
 </script>
 
-<div class="container flex flex-col w-full gap-y-4 h-24">
+<div class="container flex flex-col w-full gap-y-2 h-24">
+	{#if status}
+		{#key status}
+			<p class="self-center py-1" in:fade>{status}</p>
+		{/key}
+	{/if}
+
 	{#if !end}
 		<form
-			class="w-full self-center text-center space-x-2 space-y-4"
+			class="w-full self-center text-center space-x-2 space-y-4 md:space-y-0"
 			on:submit|preventDefault={handleSubmit}
 		>
 			<input
@@ -90,12 +96,6 @@
 				disabled={!isReady}>Give up</button
 			>
 		</form>
-	{/if}
-
-	{#if status}
-		{#key status}
-			<p class="self-center py-1" in:fade>{status}</p>
-		{/key}
 	{/if}
 
 	{#if end}
