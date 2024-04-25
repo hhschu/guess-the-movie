@@ -27,6 +27,10 @@
 		return this[Math.floor(Math.random() * this.length)];
 	};
 
+	function normalise(str) {
+		return str.toLowerCase().replace(/[^\w]/gi, '');
+	}
+
 	function handleSubmit() {
 		if (guess == '') {
 			return;
@@ -34,7 +38,7 @@
 
 		if (guessed.has(guess)) {
 			status = `You've already tried '${guess}'`;
-		} else if (guess != $answer) {
+		} else if (normalise(guess) != normalise($answer)) {
 			if (guessed.length >= maxGuesses) {
 				handleGiveUp();
 			} else {
