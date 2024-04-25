@@ -17,7 +17,6 @@
 		}
 	};
 
-	$: isReady = answer !== '';
 	let guess = '';
 	const maxGuesses = 10;
 	let status = '';
@@ -88,12 +87,12 @@
 			</datalist>
 			<button
 				class="h-10 w-24 font-semibold rounded-md bg-rose-700 hover:bg-rose-600 py-2 px-4 border-b-4 border-rose-900 text-white"
-				disabled={!isReady}>Guess</button
+				disabled={$answer.length <= 0}>Guess</button
 			>
 			<button
 				class="h-10 w-24 font-semibold rounded-md bg-slate-200 hover:bg-slate-300 py-2 px-4 border-b-4 border-slate-400 text-slate-900"
 				on:click={handleGiveUp}
-				disabled={!isReady}>Give up</button
+				disabled={$answer.length <= 0}>Give up</button
 			>
 		</form>
 	{/if}
