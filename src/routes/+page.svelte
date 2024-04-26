@@ -40,6 +40,7 @@
 		>
 			<Spinner />
 		</div>
+		<p class="font-['Snell_Roundhand'] text-lg font-semibold text-center m-auto py-3">‎</p>
 	{:then movie}
 		<div class="container flex w-full md:w-fit mx-auto px-4">
 			{#each movie.images as image}
