@@ -2,6 +2,6 @@ export default {
 	plugins: {
 		tailwindcss: {},
 		autoprefixer: {},
-		cssnano: {}
+		...(process.env.VITE_VERCEL_ENV === 'production' ? {} : {})
 	}
 };
