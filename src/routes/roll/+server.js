@@ -39,24 +39,31 @@ function randomSeed() {
 
 async function generateImages(prompt) {
 	const input = {
-		_force_msgpack: new Uint8Array([]),
 		image_size: 'portrait_4_3',
 		sync_mode: true,
-		num_images: 2,
-		num_inference_steps: '2',
-		prompt: `cinematic still of ${prompt} emotional, harmonious, vignette, color, highly detailed, high budget, bokeh, cinemascope, moody, epic, gorgeous, film grain, grainy.`,
-		negative_promptstring:
-			'anime, cartoon, graphic, text, painting, crayon, graphite, abstract, glitch, deformed, mutated, ugly, disfigured',
+		num_images: 1,
+		num_inference_steps: 4,
+		prompt: `cinematic, realistic, highly detailed still of ${prompt}`,
 		seed: randomSeed()
 	};
 
-	const result = await fal.subscribe('fal-ai/fast-lightning-sdxl', {
+	const result = await fal.subscribe('fal-ai/flux/schnell', {
+		input: input
+	});
+
+	// Currently we can only generate one image from Flux models
+	input.seed = randomSeed();
+	const result2 = await fal.subscribe('fal-ai/fast-lightning-sdxl', {
 		input: input
 	});
 
 	let images = [];
 
 	for (const image of result.images) {
+		images.push({ url: image.url });
+	}
+
+	for (const image of result2.images) {
 		images.push({ url: image.url });
 	}
 
